@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(background.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+
+.content{
+    border-radius: 5px;
+    padding: 50px;
+    margin: 50px 50px;
+    font-weight: bold;
+}
+
+.content h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.myButton{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: rgb(22, 20, 20);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    
+    <constant name="struts.devMode" value="true" />
+    
+    <constant name="struts.ui.theme" value="css_xhtml" />
+
+    <package name="basicstruts2" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+
+        <action name="Login" class="com.example.proj.action.Login" method="execute">
+            <result name="input">/index.jsp</result>
+            <result name="success">/Welcome.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+
+        <action name="Register" class="com.example.proj.action.Register" method="execute">
+            <result name="input">/Register.jsp</result>
+            <result name="success">/Thankyou.jsp</result>
+            <result name="error">/Error.jsp</result>
+        </action>
+
+        <action name="List" class="com.example.proj.action.List" method="execute">
+            <result name="success">/List.jsp</result>
+        </action>  
+
+    </package>
+</struts>
