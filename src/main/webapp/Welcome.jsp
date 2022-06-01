@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,9 +12,10 @@
     <div class="banner">
     <s:include value="Navbar.jsp"/>
     <h2>Successful Login!</h2>
-
-      <s:property value="firstName" />
-      <s:property value="lastName" />
+      <s:property value="activeUserName"/>
+      <s:property value="activeFirstName"/>
+      <s:property value="activeLastName"/>
+      <s:property value="activeAccountType"/>
     </div>
   </body>
 </html>

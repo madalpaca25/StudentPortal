@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "-//Apache Software Foundation//DTD Struts strConfiguration 2.5//EN"
     "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
-    
-    <constant name="struts.devMode" value="true" />
-    
     <constant name="struts.ui.theme" value="css_xhtml" />
+    <constant name="struts.devMode" value="true" />
+    <package name="basicstruts2" namespace="" extends="struts-default">
 
-    <package name="basicstruts2" extends="struts-default">
-
-        <default-action-ref name="index" />
+    <default-action-ref name="index" />
 
         <action name="index">
             <result>/index.jsp</result>
         </action>
 
         <action name="Login" class="com.example.proj.action.Login" method="execute">
+            <interceptor-ref name="defaultStack"/>
             <result name="input">/index.jsp</result>
             <result name="success">/Welcome.jsp</result>
             <result name="error">/Error.jsp</result>
@@ -32,7 +30,21 @@
 
         <action name="List" class="com.example.proj.action.List" method="execute">
             <result name="success">/List.jsp</result>
-        </action>  
+        </action>
 
+        <action name="DisplayUser" class="com.example.proj.action.List" method="DisplayUser">
+            <result name="success">/Welcome.jsp</result>
+        </action>
+
+        <action name="TestList" class="com.example.proj.action.TestList" method="execute">
+            <result name="success">/TestList.jsp</result>
+        </action>
+        
+        <action name="TestLogin" class="com.example.proj.action.TestLogin">
+            <interceptor-ref name="defaultStack"/>
+            <result name="input">/TestLogin.jsp</result>
+            <result name="success">/TestWelcome.jsp</result>
+            <result name="error">/TestError.jsp</result>
+        </action>
     </package>
 </struts>

@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.example.proj.model.Person;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport {
@@ -15,10 +14,11 @@ public class Login extends ActionSupport {
     static Person person=new Person();
     private String userName;
     private String passWord;
-    private String firstName;
-
-    private static final long serialVersionUID = 1L;
-                                 
+    private String activeUserName;
+    private String activeFirstName;
+    private String activeLastName;
+    private String activeAccountType;
+    private static final long serialVersionUID = 1L;                           
     static String error = "error";
 
     public String execute() throws Exception {
@@ -31,15 +31,20 @@ public class Login extends ActionSupport {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(URL, "root", "madmad123");
             if (connection != null) {
-                String sql = " SELECT firstName FROM users WHERE userName=? AND passWord =?";
+                String sql = " SELECT * FROM users WHERE userName=? AND passWord =?";
                 preparedStatement = connection.prepareStatement(sql);
                 preparedStatement.setString(1, userName);  
                 preparedStatement.setString(2, passWord); 
                 ResultSet rs= preparedStatement.executeQuery();
                 while (rs.next()){ 
-                    firstName = rs.getString(1);
+                    activeUserName = rs.getString(2);
+                    activeFirstName = rs.getString(4); 
+                    activeLastName = rs.getString(5);   
+                    activeAccountType = rs.getString(6); 
                     currentStatus = SUCCESS;
+                    return currentStatus;
                     }
+
             }
             else {
                 error = "DB connection failed";
@@ -56,7 +61,7 @@ public class Login extends ActionSupport {
             if (connection != null) try { connection.close(); } catch (SQLException ignore) {}
          }
 
-         return currentStatus;
+        return currentStatus;
 
     }
 
@@ -79,13 +84,38 @@ public class Login extends ActionSupport {
     public String getError() {
         return error;
     }
-    
-    public String getFirstName() {
-        return firstName;
+
+    public String getActiveFirstName() {
+        return activeFirstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setActiveFirstName(String activeFirstName) {
+        this.activeFirstName = activeFirstName;
     }
+
+    public String getActiveUserName() {
+        return activeUserName;
+    }
+
+    public void setActiveUserName(String activeUserName) {
+        this.activeUserName = activeUserName;
+    }
+
+    public String getActiveLastName() {
+        return activeLastName;
+    }
+
+    public void setActiveLastName(String activeLastName) {
+        this.activeLastName = activeLastName;
+    }
+
+    public String getActiveAccountType() {
+        return activeAccountType;
+    }
+
+    public void setActiveAccountType(String activeAccountType) {
+        this.activeAccountType = activeAccountType;
+    }
+    
 
 }

@@ -1,6 +1,5 @@
 package com.example.proj.action;
 
-
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.Connection;                
@@ -8,11 +7,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.example.proj.model.Person;
-
 import com.opensymphony.xwork2.ActionSupport;
 
-
-public class List extends ActionSupport {
+public class TestList extends ActionSupport {
 
     ArrayList<Person> persons = new ArrayList<Person>();
     public ArrayList listOfUserNames = new ArrayList();
@@ -29,33 +26,31 @@ public class List extends ActionSupport {
             String URL = "jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC";
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(URL, "root", "madmad123");
-
             if (connection != null) {
                 String sql = "SELECT * FROM users";
                 preparedStatement = connection.prepareStatement(sql);
                 ResultSet rs= preparedStatement.executeQuery();
-
                 while(rs.next()){  
                     Person person=new Person();
                     person.setUserName(rs.getString(2)); 
-                    person.setFirstName(rs.getString(4)); 
+                    person.setFirstName(rs.getString(4));
                     person.setLastName(rs.getString(5));   
                     person.setAccountType(rs.getString(6)); 
-                    persons.add(person);
-                    listOfUserNames.add(person.getUserName());  
+                    persons.add(person); 
+                    listOfUserNames.add(person.getUserName());
                 }
             } 
-         } catch (Exception e) {
-
-         } finally {
+        } 
+        catch (Exception e) {
+        } 
+        finally {
             if (preparedStatement != null) try { preparedStatement.close(); } catch (SQLException ignore) {}
             if (connection != null) try { connection.close(); } catch (SQLException ignore) {}
-         }
-
-         return SUCCESS;
+        }
+        return SUCCESS;
     }
 
-    public String DisplayUser() {
+    public String testDisplayUser() {
        
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -134,3 +129,28 @@ public class List extends ActionSupport {
     }
     
 }
+
+        //setActiveFirstName(getPersons().get(1).getUserName());
+        //setActiveFirstName(persons.get(1).getUserName());
+        //activeFirstName = persons.get(0).getUserName();
+        /*for (int count = 0; count < persons.size(); count++ ){
+            if (persons.get(count).getUserName().equals(userInput)) {
+                Person active=new Person();
+                active.setUserName(persons.get(count).getUserName());
+                active.setFirstName(persons.get(count).getFirstName());
+                active.setLastName(persons.get(count).getLastName());
+                active.setAccountType(persons.get(count).getAccountType());
+                
+                //userName = active.getUserName();
+                firstName = "MadKid";
+                //lastName = active.getLastName();
+                //accountType = active.getAccountType();
+            }
+        }*/
+
+        
+        
+    
+    
+
+    
