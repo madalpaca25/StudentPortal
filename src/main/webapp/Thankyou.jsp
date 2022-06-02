@@ -7,11 +7,15 @@
     <title>Registration Successful</title>
     <link rel="stylesheet" href="CSS/style.css">
   </head>
+
   <body>
-    <h3>Thank you for registering for a prize.</h3>
+    <div class="banner">
+    <s:include value="Navbar.jsp"/>
+    <h3>Thank you for registering.</h3>
 
     <p>Your registration information: <s:property value="personBean" /> </p>
 
     <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+    </div>
   </body>
 </html>

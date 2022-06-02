@@ -11,8 +11,8 @@
   <body>
     <div class="banner">
     <s:include value="Navbar.jsp"/>
-    <h2>Successful Login!</h2>
-      <s:property value="activeUserName"/>
+    <h2>USER DETAILS:</h2>
+      <s:property value="activeUserName" />
       <s:property value="activeFirstName"/>
       <s:property value="activeLastName"/>
       <s:property value="activeAccountType"/>

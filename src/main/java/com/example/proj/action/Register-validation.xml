@@ -1,0 +1,36 @@
+<!DOCTYPE validators PUBLIC 
+    "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+    <field name="personBean.userName">
+        <field-validator type="requiredstring">
+             <message>Username is required </message>
+        </field-validator>
+    </field>
+
+    <field name="personBean.passWord">
+        <field-validator type="requiredstring">
+             <message>Password is required </message>
+        </field-validator>
+    </field>
+
+    <field name="personBean.firstName">
+        <field-validator type="requiredstring">
+             <message>First name is required </message>
+        </field-validator>
+    </field>
+
+    <field name="personBean.lastName">
+        <field-validator type="requiredstring">
+             <message>Last name is required </message>
+        </field-validator>
+    </field>
+
+    <field name="personBean.accountType">
+        <field-validator type="requiredstring">
+             <message>Account Type is required. (Admin, Teacher, Student) </message>
+        </field-validator>
+    </field>
+
+</validators>

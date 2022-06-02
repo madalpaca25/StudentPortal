@@ -36,15 +36,5 @@
             <result name="success">/Welcome.jsp</result>
         </action>
 
-        <action name="TestList" class="com.example.proj.action.TestList" method="execute">
-            <result name="success">/TestList.jsp</result>
-        </action>
-        
-        <action name="TestLogin" class="com.example.proj.action.TestLogin">
-            <interceptor-ref name="defaultStack"/>
-            <result name="input">/TestLogin.jsp</result>
-            <result name="success">/TestWelcome.jsp</result>
-            <result name="error">/TestError.jsp</result>
-        </action>
     </package>
 </struts>

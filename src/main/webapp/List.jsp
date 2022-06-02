@@ -17,10 +17,9 @@ prefix="sx" uri="/struts-dojo-tags" %>
     <s:submit/>
 </s:form>
 
-
-<h3>LIST OF ALL USERS</h3>  
 <div class="banner">
 <s:include value="Navbar.jsp"/>
+<h3>LIST OF ALL USERS</h3>  
 <s:iterator  value="persons">  
 <fieldset>  
 <s:property value="userName"/><br/>  
