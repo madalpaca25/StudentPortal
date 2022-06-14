@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class List extends ActionSupport {
 
     ArrayList<Person> persons = new ArrayList<Person>();
-    public ArrayList listOfUserNames = new ArrayList();
+    public ArrayList<String> listOfUserNames = new ArrayList<String>();
     private String userInput;
     private String activeUserName;
     private String activeFirstName;
@@ -74,6 +74,7 @@ public class List extends ActionSupport {
                     activeFirstName = rs.getString(4); 
                     activeLastName = rs.getString(5);   
                     activeAccountType = rs.getString(6); 
+                    return SUCCESS;
                 }
             }
         }

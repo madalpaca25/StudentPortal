@@ -3,13 +3,16 @@
 <!DOCTYPE html>
 
 <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
 <style>
     .navbar{
-        width: 85%;
-        padding: 35px 0;
-        display: flex;
+        text-align: center;
+        padding: 60px 0;
         align-items: center;
         justify-content: space-between;
+        font-size: x-large;
     }
 
     .navbar ul li{
@@ -17,17 +20,19 @@
     display: inline-block;
     margin: 0 20px;
     position: relative;
+    
     }
 
     .navbar ul li a{
         text-decoration: none;
-        color: #fff;
+        color: rgb(24, 23, 23);
         text-transform: uppercase;
+        
     }
 
     .navbar ul li::after{
         content: '';
-        height: 3px;
+        height: 5px;
         width: 0%;
         background: #009688;
         position: absolute;
@@ -42,9 +47,13 @@
 </style>
     <div class="navbar">
         <ul>
-            <li><a href="index.jsp">Home</a></li>
-            <li><a href="Register.jsp">Register</a></li>
-            <li><a href="List.action">List</a></li>
+            <!-- <li><a href="index.jsp">Home</a></li>
+            <li><a href="Register.jsp">Register</a></li> -->
+
+            <li><a href="<s:url action='index' />">HOME</a></li>
+            <li><a href="Register.jsp">REGISTER</a></li>
+            <li><a href="<s:url action='List' />">LIST</a></li>
+            <li><a href="<s:url action='News' />">NEWS</a></li>
         </ul>
     </div>
 </html>
